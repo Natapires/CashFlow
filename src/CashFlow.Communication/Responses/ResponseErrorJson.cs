@@ -6,6 +6,7 @@ public class ResponseErrorJson
 
     public ResponseErrorJson(string errorMessage) //Com esse construtor, estamos obrigando a passar um parâmetro 
     {
+        
         ErrorMessage = errorMessage;
     }
 }
