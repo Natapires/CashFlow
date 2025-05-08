@@ -21,7 +21,7 @@ namespace CashFlow.Api.Controllers
 
                 return Created(string.Empty, response);
             }
-            catch (ArgumentException ex)
+            catch (ErrorOnValidationException ex)
             {
                 var errorResponse = new ResponseErrorJson(ex.Message);
                
