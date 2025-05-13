@@ -6,4 +6,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <EmbeddedResource Remove="ResourceErrorMessages.resx" />
+    </ItemGroup>
+
 </Project>

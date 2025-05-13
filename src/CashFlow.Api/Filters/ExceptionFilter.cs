@@ -28,8 +28,7 @@ public class ExceptionFilter : IExceptionFilter
             var errorResponse = new ResponseErrorJson(ex.Message);
             
             context.HttpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
-            context.Result = new BadRequestObjectResult(errorResponse);   
-            
+            context.Result = new BadRequestObjectResult(errorResponse);
         }
     }
     
