@@ -2,15 +2,8 @@ using System.Globalization;
 
 namespace CashFlow.Api.Middleware;
 
-public class CultureMiddleware
+public class CultureMiddleware(RequestDelegate next)
 {
-    private readonly RequestDelegate _next;
-    
-    public CultureMiddleware(RequestDelegate next)
-    {
-        _next = next;
-    }
-    
     public async Task Invoke(HttpContext context)
     {
         var supportedLanguages = CultureInfo.GetCultures(CultureTypes.AllCultures).ToList();
@@ -28,6 +21,6 @@ public class CultureMiddleware
         CultureInfo.CurrentCulture = cultureInfo;
         CultureInfo.CurrentUICulture = cultureInfo;
 
-        await _next(context);
+        await next(context);
     }
 }
