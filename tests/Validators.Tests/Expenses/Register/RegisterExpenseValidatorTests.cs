@@ -22,16 +22,16 @@ public class RegisterExpenseValidatorTests
         result.IsValid.Should().BeTrue();
     }
 
-    [Theory]
-    [InlineData("")]
+    [Theory] //Um metodo que me da a possibilidade de utilizar mais de uma função
+    [InlineData("")] //O inline significar ser uma função
     [InlineData("         ")]
     [InlineData(null)]
     public void Error_Title_Empty(string title)
     {
         //Arrange
-        var validator = new RegisterExpenseValidator();
-        var request = RequestRegisterExpenseJsonBuilder.Build();
-        request.Title = title;
+        var validator = new RegisterExpenseValidator(); //instanciando a validator
+        var request = RequestRegisterExpenseJsonBuilder.Build(); //instanciando a request
+        request.Title = title; //forçando receber um title
 
         //Act
         var result = validator.Validate(request);
